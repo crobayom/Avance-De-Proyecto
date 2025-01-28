@@ -77,9 +77,9 @@ tableroA1 = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 tableroB1 = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 ```
 
-## 6. 
-### Diagramas Respectivos
 
+### Diagramas Respectivos
+   
 
 
 ## Solucion Preliminar
