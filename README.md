@@ -79,7 +79,10 @@ tableroB1 = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 
 
 ### Diagramas Respectivos
-   
+
+## N°1 creación de matrices
+
+   https://app.diagrams.net/#G1IgsWVnjGFtp7gWwPxUwFyPQ81WmGyWrx#%7B%22pageId%22%3A%226BqPHSdggr4rniQLIDKM%22%7D
 
 
 ## Solucion Preliminar
