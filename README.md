@@ -84,6 +84,8 @@ tableroB1 = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 
    https://app.diagrams.net/#G1IgsWVnjGFtp7gWwPxUwFyPQ81WmGyWrx#%7B%22pageId%22%3A%226BqPHSdggr4rniQLIDKM%22%7D
 
+   https://drive.google.com/file/d/1IgsWVnjGFtp7gWwPxUwFyPQ81WmGyWrx/view?usp=drive_link
+
 ## N° 2 Validación de caracteres.
 
 https://app.diagrams.net/#G1IgsWVnjGFtp7gWwPxUwFyPQ81WmGyWrx#%7B%22pageId%22%3A%22-vL5OHhv7YS65zEQdmQu%22%7D
