@@ -80,12 +80,15 @@ tableroB1 = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 
 ### Diagramas Respectivos
 
-## N°1 creación de matrices.
-## N° 2 Validación de caracteres.
-## N°3 Posición inicial de los barcos.
+#### N°1 creación de matrices.
+#### N° 2 Validación de caracteres.
+#### N°3 Posición inicial de los barcos.
 
 https://drive.google.com/drive/folders/1pBN8QKg-8Vz7DXRBARyeN_0zb8beR5JW?usp=sharing
 
+#### N°4 Existencia de barcos
+
+https://drive.google.com/file/d/1YcSZ9uppXao64HunNIpZPWw5Zftk6-qg/view?usp=sharing
 
 ## Solucion Preliminar
 
