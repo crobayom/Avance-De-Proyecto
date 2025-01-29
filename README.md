@@ -84,7 +84,7 @@ tableroB1 = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 ## N° 2 Validación de caracteres.
 ## N°3 Posición inicial de los barcos.
 
-https://drive.google.com/file/d/1IgsWVnjGFtp7gWwPxUwFyPQ81WmGyWrx/view?usp=sharing
+https://drive.google.com/drive/folders/1pBN8QKg-8Vz7DXRBARyeN_0zb8beR5JW?usp=sharing
 
 
 ## Solucion Preliminar
