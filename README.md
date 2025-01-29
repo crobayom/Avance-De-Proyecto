@@ -80,9 +80,17 @@ tableroB1 = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 
 ### Diagramas Respectivos
 
-## N°1 creación de matrices
+## N°1 creación de matrices.
 
    https://app.diagrams.net/#G1IgsWVnjGFtp7gWwPxUwFyPQ81WmGyWrx#%7B%22pageId%22%3A%226BqPHSdggr4rniQLIDKM%22%7D
+
+## N° 2 Validación de caracteres.
+
+https://app.diagrams.net/#G1IgsWVnjGFtp7gWwPxUwFyPQ81WmGyWrx#%7B%22pageId%22%3A%22-vL5OHhv7YS65zEQdmQu%22%7D
+
+## N°3 Posición inicial de los barcos.
+
+https://app.diagrams.net/#G1IgsWVnjGFtp7gWwPxUwFyPQ81WmGyWrx#%7B%22pageId%22%3A%228ytgzqPscw4pmnxwvf8O%22%7D
 
 
 ## Solucion Preliminar
