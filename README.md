@@ -42,7 +42,7 @@ tableroA[primera_posicion - 1][segunda_posicion - 1] = 1
 ```
 
 
-## 4. Posición de consecutiva de los barcos:
+## 4. Posición consecutiva de los barcos:
 se utiliza __fabs__ y __ads__ para garantizar la primera posicón del barco, con la segunda posición (vertical u horizontal)
 con diferencias absolutas.
 
@@ -92,6 +92,9 @@ https://app.diagrams.net/#G1IgsWVnjGFtp7gWwPxUwFyPQ81WmGyWrx#%7B%22pageId%22%3A%
 
 https://app.diagrams.net/#G1IgsWVnjGFtp7gWwPxUwFyPQ81WmGyWrx#%7B%22pageId%22%3A%228ytgzqPscw4pmnxwvf8O%22%7D
 
+## N°4 Posición consecutiva de los barcos.
+
+https://app.diagrams.net/#G1IgsWVnjGFtp7gWwPxUwFyPQ81WmGyWrx#%7B%22pageId%22%3A%22jDEkvbeky_YqCtiKYqmT%22%7D
 
 ## Solucion Preliminar
 
