@@ -150,9 +150,16 @@ https://mermaid.live/edit#pako:eNqNk91umzAUgF_F8lUq0ahgaAiVOq2haZM26U-qXQx6cQou8
 ## Solucion Preliminar
 
 En el archivo adjuntado
-    elif existencia1!=True:
-        print("Bien hecho jugador 2, ganaste")
-    elif existencia2!=True:
-        print("Bien hecho jugador 1, ganaste")
-```
+
+## Problemas 
+
+[] Entrada de los barcos en las posiciones que el usuario elija
+[] Distincion entre jugadores
+[] No sobreposicionamiento de barcos (uno sobre otro)
+
+## Conclusion
+
+El proyecto fue una gran herramiento para usar las herramientas aprendidas como funciones, condicionales y demas.
+Sin embargo lo mas importante dentro del proyecto fue el uso de la logica de programacion, para racionalizar y verificar cualquier proceso que se tratara de llevar a cabo.
+Fue la herramienta principal la hora de tomar decisiones de diseño.
 
