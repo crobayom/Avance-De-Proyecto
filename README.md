@@ -12,8 +12,8 @@ La alternativa que elegimos es de caracter libre y propositiva, mantenemos el or
 
 ## 1. Inicialización de tableros (Algoritmo de construcción de matrices):
 
-.Se usa un bucle anidado (for) para crear e inicializar matrices (tableroA, tableroB, etc.), que representan los tableros del juego.
-.Cada tablero es una matriz de tamaño maximo x maximo inicializada con ceros.
+- Se usa un bucle anidado (for) para crear e inicializar matrices (tableroA, tableroB, etc.), que representan los tableros del juego.
+- Cada tablero es una matriz de tamaño maximo x maximo inicializada con ceros.
 
    
 ```python
