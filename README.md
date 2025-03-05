@@ -35,9 +35,9 @@ Este tipo de juegos pone a prueba la lógica y la capacidad de anticiparse a los
 
    
 ```python
-maximo = 4
+maximo = 10
 
-# Crear una matriz de 4x4 llena de ceros
+# Crear una matriz de 10x10 llena de ceros
 tablero = [[0] * maximo for _ in range(maximo)]
 
 # Mostrar la matriz
