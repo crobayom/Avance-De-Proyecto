@@ -37,8 +37,8 @@ for fila in tablero:
 
 ## 2. Validación de entrada del usuario (Algoritmo de control de flujo):
 
-.Se emplean bucles while para asegurar que las coordenadas ingresadas sean válidas (dentro de los límites del tablero y siguiendo las reglas de orientación de los barcos).
-.Se utilizan condicionales (if) para manejar errores y restricciones de entrada.
+- Se emplean bucles while para asegurar que las coordenadas ingresadas sean válidas (dentro de los límites del tablero y siguiendo las reglas de orientación de los barcos).
+- Se utilizan condicionales (if) para manejar errores y restricciones de entrada.
 
 ```python
 numero = -1
@@ -54,8 +54,8 @@ print(f"Has ingresado un número válido: {numero}")
 
 ## 3. Colocación de barcos (Algoritmo de asignación de valores en una matriz):
 
-.Dependiendo de la orientación elegida por el usuario (vertical u horizontal), se coloca un submarino de dos casillas en el tablero.
-.Se verifican las restricciones de distancia mediante fabs() o abs() para asegurar que los barcos se coloquen correctamente.
+- Dependiendo de la orientación elegida por el usuario (vertical u horizontal), se coloca un submarino de dos casillas en el tablero.
+- Se verifican las restricciones de distancia mediante fabs() o abs() para asegurar que los barcos se coloquen correctamente.
 
 ```python
 tablero = [[0] * 4 for _ in range(4)]
@@ -79,12 +79,12 @@ for fila in tablero:
 
 ## 4. Simulación de turnos (Algoritmo de control de flujo en bucle while):
 
-.Se usa un bucle while que se ejecuta hasta que uno de los jugadores pierda todos sus barcos.
-.Cada jugador tiene un turno alternado para atacar, en el cual:
-.Introduce coordenadas para disparar.
-.Se actualiza el tablero de ataques y el tablero del oponente.
-.Se verifica si un disparo acertó (if tableroB[...] == 1).
-.Se imprime el estado de los tableros.
+- Se usa un bucle while que se ejecuta hasta que uno de los jugadores pierda todos sus barcos.
+- Cada jugador tiene un turno alternado para atacar, en el cual:
+- Introduce coordenadas para disparar.
+- Se actualiza el tablero de ataques y el tablero del oponente.
+- Se verifica si un disparo acertó (if tableroB[...] == 1).
+- Se imprime el estado de los tableros.
 
 ```python
 turno = 1  # Empieza el jugador 1
@@ -102,9 +102,9 @@ print("Fin del juego")
 
 ## 5. Detección de victoria (Algoritmo de búsqueda en una matriz):
 
-.Se usa un bucle for que recorre cada fila del tablero verificando si quedan barcos (1 en la matriz).
-.Si ya no quedan barcos (1), el jugador pierde.
-.Se imprime el resultado según la condición (if existencia1 == False o if existencia2 == False).
+- Se usa un bucle for que recorre cada fila del tablero verificando si quedan barcos (1 en la matriz).
+- Si ya no quedan barcos (1), el jugador pierde.
+- Se imprime el resultado según la condición (if existencia1 == False o if existencia2 == False).
 
 ```python
 tablero = [
@@ -125,8 +125,8 @@ else:
 
 ## 6. Temporizadores y limpieza de pantalla (Algoritmo de espera y actualización visual):
 
-.sleep(1) se usa para generar pausas entre acciones, simulando un efecto de cuenta regresiva.
-.system("cls") intenta limpiar la pantalla en sistemas Windows (aunque en algunos entornos puede no funcionar correctamente).
+- sleep(1) se usa para generar pausas entre acciones, simulando un efecto de cuenta regresiva.
+- system("cls") intenta limpiar la pantalla en sistemas Windows (aunque en algunos entornos puede no funcionar correctamente).
 
 ```python
 import time
