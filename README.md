@@ -143,7 +143,16 @@ print("¡Comienza el juego!")
 
 ### Diagrama de flujo:
 
-```python
+```merdmai
+ A((Inicio)) --> B[Inicializar Tableros]
+    B --> C[Colocar Barcos]
+    C --> D[Fase de Ataque]
+    D -->|Impacto| E[Actualizar Tablero]
+    D -->|Fallo| E
+    E --> D
+    D -->|Sin barcos| F[Verificar Victoria]
+    F -->|Sí| G((Fin del Juego))
+    F -->|No| D
 
 ```
 
