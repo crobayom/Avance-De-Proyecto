@@ -126,7 +126,7 @@ else:
 ## 6. Temporizadores y limpieza de pantalla (Algoritmo de espera y actualización visual):
 
 - sleep(1) se usa para generar pausas entre acciones, simulando un efecto de cuenta regresiva.
-- system("cls") intenta limpiar la pantalla en sistemas Windows (aunque en algunos entornos puede no funcionar correctamente).
+- system("cls") intenta limpiar la pantalla.
 
 ```python
 import time
