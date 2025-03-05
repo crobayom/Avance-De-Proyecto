@@ -2,82 +2,89 @@ from math import fabs
 from os import system
 from time import sleep
 
+# tamaño del tablero
 maximo = 10
 
-# Función para inicializar los tableros
+# función para inicializar los tableros de juego con los valores del usuario
 def inicio_tableros(maximo, tableroA, tableroB, tableroA1, tableroB1):
+    # llenamos todos los tableros con 0 (vacío)
     for i in range(maximo):
         for j in range(maximo):
             tableroA.append([0] * maximo)
             tableroA1.append([0] * maximo)
             tableroB.append([0] * maximo)
             tableroB1.append([0] * maximo)
-    for i in range(maximo):
-        print(tableroA[i])
-    print("")
-    for i in range(maximo):
-        print(tableroA1[i])
-    print("")
-    for i in range(maximo):
-        print(tableroB[i])
-    print("")
-    for i in range(maximo):
-        print(tableroB1[i])
-    print("")
 
-# Función para colocar los barcos en el tablero
+# función para colocar un barco en el tablero
 def colocar_barco(tableroA, tamano):
+    # pedimos la orientación del barco (vertical u horizontal, 1 o 2)
     orientacion = 11
     while orientacion > 2 or orientacion < 1:
-        orientacion = int(input(f"¿Qué orientación prefiere para el barco de tamaño {tamano}? 1. Vertical 2. Horizontal: "))
+        orientacion = int(input("¿Qué orientación prefiere para el barco de tamaño " + str(tamano) + "? 1. Vertical 2. Horizontal: "))
         if orientacion > 2 or orientacion < 1:
             print("La opción que eligió no está dentro de las válidas, inténtelo de nuevo")
 
+    # pedimos la posición inicial del barco
     primera_posicion = int(input("Ingrese la posición inicial del barco (en el eje vertical): "))
     segunda_posicion = int(input("Ingrese la posición inicial del barco (en el eje horizontal): "))
 
-    # Validación para asegurarse de que el barco no se salga del tablero ni se solape
+    # validamos que la posición sea válida para el barco (no se salga ni se sobreponga con otros barcos)
     while (primera_posicion < 1 or primera_posicion > maximo or segunda_posicion < 1 or segunda_posicion > maximo or 
            not es_posicion_valida(tableroA, primera_posicion, segunda_posicion, tamano, orientacion)):
         print("La ubicación que elegiste no es válida. Asegúrate de que el barco quepa en el tablero y no se solape.")
         primera_posicion = int(input("Ingrese la posición inicial del barco (en el eje vertical): "))
         segunda_posicion = int(input("Ingrese la posición inicial del barco (en el eje horizontal): "))
 
-    if orientacion == 1:  # Vertical
+    # colocamos el barco en el tablero según la orientación
+    # condicional para vertical
+    if orientacion == 1:  
         for i in range(tamano):
             tableroA[primera_posicion - 1 + i][segunda_posicion - 1] = 1
-    elif orientacion == 2:  # Horizontal
+    # condicional para horizontal
+    elif orientacion == 2:  
         for i in range(tamano):
             tableroA[primera_posicion - 1][segunda_posicion - 1 + i] = 1
 
-    # Mostrar el tablero con el barco colocado
+    # mostramos el tablero con el barco colocado
     for i in range(maximo):
         print(tableroA[i])
 
-# Función que valida que un barco no se solape ni se salga del tablero
+# función que valida que un barco no se sobreponga ni que se salga del tablero
 def es_posicion_valida(tableroA, primera_posicion, segunda_posicion, tamano, orientacion):
-    if orientacion == 1:  # Vertical
+    # conidcional para vertical
+    if orientacion == 1:  
+        # verificamos que el barco quepa en el tablero
         if primera_posicion + tamano - 1 > maximo:
-            return False  # El barco se sale del tablero
+            # el barco se sale del tablero, devuelve falso
+            return False  
+        # verificamos que no se sobreponga con otro barco
         for i in range(tamano):
             if tableroA[primera_posicion - 1 + i][segunda_posicion - 1] == 1:
-                return False  # El barco se solapa con otro
-    elif orientacion == 2:  # Horizontal
+                # el barco se sobrepone con otro, regresa falso
+                return False  
+    # condicional para horizontal
+    elif orientacion == 2:  
+        # verificamos que el barco quepa en el tablero
         if segunda_posicion + tamano - 1 > maximo:
-            return False  # El barco se sale del tablero
+            # el barco se sale del tablero, devuelve falso
+            return False  
+        # verificamos que no se sobroponga con otro barco
         for i in range(tamano):
             if tableroA[primera_posicion - 1][segunda_posicion - 1 + i] == 1:
-                return False  # El barco se solapa con otro
+                # el barco se sobrepone a otro, regresa falso
+                return False  
     return True
 
-# Función para colocar todos los barcos de un jugador
+# función para colocar todos los barcos de un jugador
 def ubicacion_barcos(tableroA):
-    # Barcos de tamaño 5, 4, 3, 3 y 2
-    tamaños = [5, 4, 3, 3, 2]
-    for tamano in tamaños:
+    # tamaños de los barcos (5, 4, 3, 3, 2) (porta aviones, buque, crucero, submarino, lancha)
+    tamanos = [5, 4, 3, 3, 2]
+    # colocamos cada barco de los tamaños indicados
+    for tamano in tamanos:
         colocar_barco(tableroA, tamano)
 
 if __name__ == "__main__":
+    # bienvenida y reglas del juego
     print("Bienvenid@s sean al juego de astucia naval")
     print("Este consta de varias reglas de juego, que serán mostradas a continuación: ")
     print("Cada jugador tendrá dos tableros, uno para las posiciones de sus barcos y otro para los lugares donde atacará")
@@ -85,23 +92,24 @@ if __name__ == "__main__":
     print("Esto lo hará a partir de ataques a posiciones donde cree que estará el rival, y se le informará si impactó o no")
     print("Cuando todos los cuadrantes de un barco sean impactados, este se hundirá")
     print("El objetivo es que el rival se quede sin barcos mientras que tú los conserves")
-    print("Hay que tener cuidado pues los barcos pueden ser colocados en la misma posición que otros y el juego no lo restringirá")
-    print("Pero por el hecho de que puedas hacerlo no significa que sea lo ideal, pues si encuentras una posición con todos los barcos 1 impacto tendrá el valor de 5")
-    print("")
     print("Decidan bien, buena suerte")   
     print("\n")
     
+    # inicializamos los tableros
     tableroA = []
     tableroB = []
     tableroA1 = []
     tableroB1 = []
     
-    # Inicializamos los tableros
+    # Inicializamos los tableros de ambos jugadores con sus valores
     inicio_tableros(maximo, tableroA, tableroA1, tableroB, tableroB1)
 
+    # turno del jugador 1 para colocar sus barcos
     print("Es tu turno jugador 1")
-    ubicacion_barcos(tableroA)  # Colocamos los barcos del jugador 1
+    # colocamos los barcos del jugador 1
+    ubicacion_barcos(tableroA)  
 
+    # tiempo para que el cambio de turnos
     print("5")
     sleep(1)
     print("4")
@@ -113,9 +121,12 @@ if __name__ == "__main__":
     print("1")
     system("cls")
 
+    # turno del jugador 2 para colocar sus barcos
     print("Es tu turno jugador 2")
-    ubicacion_barcos(tableroB)  # Colocamos los barcos del jugador 2
+    # colocamos los barcos del jugador 2
+    ubicacion_barcos(tableroB)  
 
+    # tiempo para que el cambio de turnos
     print("5")
     sleep(1)
     print("4")
@@ -127,16 +138,21 @@ if __name__ == "__main__":
     print("1")
     system("cls")
 
+    # variables para verificar si ambos jugadores aún tienen barcos
     existencia1 = True
     existencia2 = True
 
     print("Hora de atacar")
 
+    # mientras ambos jugadores tengan barcos, siguen jugando ("tengan 1'os en su tablero")
     while existencia1 and existencia2:
-        # Jugador 1 ataca
+        # turno del jugador 1 para atacar
+        # inicio de variables en falso para al final cambiar en caso de que sea necesario
         existencia2 = False
         existencia1 = False
 
+
+        # muestra de tableros inicial
         print("Jugador 1, es tu turno")
         print("Este es tu tablero de barcos hasta el momento: ")
         for i in range(maximo):
@@ -145,9 +161,11 @@ if __name__ == "__main__":
         for i in range(maximo):
             print(tableroA1[i])
 
+        # pedimos las posicion para el ataque
         primera_posicion = int(input("Ingrese el lugar donde quiera atacar (en el eje vertical): "))
         segunda_posicion = int(input("Ingrese el lugar donde quiera atacar (en el eje horizontal): "))
         
+        # verificamos si el ataque fue exitoso
         if tableroB[primera_posicion - 1][segunda_posicion - 1] == 1: 
             tableroB[primera_posicion - 1][segunda_posicion - 1] = 6
             tableroA1[primera_posicion - 1][segunda_posicion - 1] = 2
@@ -156,9 +174,11 @@ if __name__ == "__main__":
             tableroA1[primera_posicion - 1][segunda_posicion - 1] = 1
             print("Mejor suerte la próxima")
 
+        # mostramos el tablero de ataques del jugador 1
         for i in range(maximo):
             print(tableroA1[i])
 
+        # tiempo para el cambio de turnos
         print("5")
         sleep(1)
         print("4")
@@ -170,7 +190,7 @@ if __name__ == "__main__":
         print("1")
         system("cls")
 
-        # Jugador 2 ataca
+        # turno del jugador 2 para atacar
         print("Es tu turno, jugador 2")
         print("Este es tu tablero de barcos hasta el momento: ")
         for i in range(maximo):
@@ -179,9 +199,11 @@ if __name__ == "__main__":
         for i in range(maximo):
             print(tableroB1[i])
 
+        # pedimos la posicion del ataque
         primera_posicion = int(input("Ingrese el lugar donde quiera atacar (en el eje vertical): "))
         segunda_posicion = int(input("Ingrese el lugar donde quiera atacar (en el eje horizontal): "))
         
+        # verificamos si el ataque fue éxitoso
         if tableroA[primera_posicion - 1][segunda_posicion - 1] == 1: 
             tableroA[primera_posicion - 1][segunda_posicion - 1] = 6
             tableroB1[primera_posicion - 1][segunda_posicion - 1] = 2
@@ -190,14 +212,16 @@ if __name__ == "__main__":
             tableroB1[primera_posicion - 1][segunda_posicion - 1] = 1
             print("Mejor suerte la próxima")            
 
+        # mostramos el tablero de ataques del jugador 2
         for i in range(maximo):
             print(tableroB1[i])
 
-        # Comprobar si existen barcos
+        # comprobamos si aún quedan barcos en alguno de los tableros
         for i in range(maximo):
             if 1 in tableroA[i]: existencia1 = True
             if 1 in tableroB[i]: existencia2 = True
         
+        # tiempo para que ambos jugadores se preparen para el siguiente turno (y no vean el otro tablero)
         print("5")
         sleep(1)
         print("4")
@@ -209,6 +233,7 @@ if __name__ == "__main__":
         print("1")
         system("cls")
 
+    # mensaje final del juego dependiendo del resultado (picaro si es empate)
     if not existencia1 and not existencia2:
         print("¡Felicidad, es un empate! ¿Quieren desempatar? Jueguen de nuevo.")
     elif not existencia1:
