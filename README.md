@@ -7,88 +7,141 @@
 
 La alternativa que elegimos es de caracter libre y propositiva, mantenemos el orden anterior continuando con juegos; En este caso, el conocido juego de estrategia, nuestra idea es replicarlo (dentro de lo posible) lo mas identico al original, es decir, 4 tableros (2 para las posiciones de los barcos y 2 para los intentos de hundirlos), con la posibilidad de el propio jugador ubicar sus barcos cual si fuera en el juego fisico (en cualquier lugar siempre y cuando este orientado vertical y horizontalmente y este dentro de los limites del tablero) 
 
-## Algoritmos Reconocidos
+## Algoritmos utilizados
 
 
-## 1. La creación de matrices:
-Los ocho tableros se crean como matrices de cuatro por cuatro, como en este caso los son los dos tableros de __A__ y los dos tableros de __B__ , en el que se hubicaran los barcos.
+## 1. Inicialización de tableros (Algoritmo de construcción de matrices):
+
+.Se usa un bucle anidado (for) para crear e inicializar matrices (tableroA, tableroB, etc.), que representan los tableros del juego.
+.Cada tablero es una matriz de tamaño maximo x maximo inicializada con ceros.
+
    
 ```python
-tableroA = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
-tableroB = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+maximo = 4
+
+# Crear una matriz de 4x4 llena de ceros
+tablero = [[0] * maximo for _ in range(maximo)]
+
+# Mostrar la matriz
+for fila in tablero:
+    print(fila)
+
+# Modificar una celda específica
+tablero[2][3] = 1
+
+print("\nMatriz después de modificar una celda:")
+for fila in tablero:
+    print(fila)
 ```
 
 
-## 2. Validación de carecteres: 
-se utiliza el condicional __While__ para que el usuario elija un valor dentro de ese rango, de lo contrario, se pedirá que introdusca otro valor.
+## 2. Validación de entrada del usuario (Algoritmo de control de flujo):
+
+.Se emplean bucles while para asegurar que las coordenadas ingresadas sean válidas (dentro de los límites del tablero y siguiendo las reglas de orientación de los barcos).
+.Se utilizan condicionales (if) para manejar errores y restricciones de entrada.
 
 ```python
-while orientacion > 2 or orientacion < 1:
-    orientacion = int(input("¿Qué orientación prefiere? 1. Vertical 2. Horizontal: "))
-    if orientacion > 2 or orientacion < 1:
-        print("La opción que eligió no está dentro de las válidas, inténtelo de nuevo")
+numero = -1
+
+while numero < 1 or numero > 5:
+    numero = int(input("Ingresa un número entre 1 y 5: "))
+    if numero < 1 or numero > 5:
+        print("Número fuera de rango. Inténtalo de nuevo.")
+
+print(f"Has ingresado un número válido: {numero}")
 ```
 
 
-## 3. Posición inicial de los barcos:
-El usuario introduce las coordenadas del barco y se verifica que el valor esté dentro del rango de la matriz (1-4), para luego actualizar el tablero marcado con un 1.
+## 3. Colocación de barcos (Algoritmo de asignación de valores en una matriz):
+
+.Dependiendo de la orientación elegida por el usuario (vertical u horizontal), se coloca un submarino de dos casillas en el tablero.
+.Se verifican las restricciones de distancia mediante fabs() o abs() para asegurar que los barcos se coloquen correctamente.
 
 ```python
-while primera_posicion < 1 or primera_posicion > 4:
-    primera_posicion = int(input("Ingrese el lugar donde pondrá inicialmente su submarino (en el eje vertical): "))
-while segunda_posicion < 1 or segunda_posicion > 4:
-    segunda_posicion = int(input("Ingrese el lugar donde pondrá inicialmente su submarino (en el eje horizontal): "))
-tableroA[primera_posicion - 1][segunda_posicion - 1] = 1
+tablero = [[0] * 4 for _ in range(4)]
+
+orientacion = int(input("Elige la orientación (1: vertical, 2: horizontal): "))
+
+fila = int(input("Elige la fila inicial (1-4): ")) - 1
+columna = int(input("Elige la columna inicial (1-4): ")) - 1
+
+tablero[fila][columna] = 1  # Colocar primera parte del barco
+
+if orientacion == 1 and fila < 3:  # Vertical
+    tablero[fila + 1][columna] = 1
+elif orientacion == 2 and columna < 3:  # Horizontal
+    tablero[fila][columna + 1] = 1
+
+for fila in tablero:
+    print(fila)
 ```
 
 
-## 4. Posición consecutiva de los barcos:
-se utiliza __fabs__ y __ads__ para garantizar la primera posicón del barco, con la segunda posición (vertical u horizontal)
-con diferencias absolutas.
+## 4. Simulación de turnos (Algoritmo de control de flujo en bucle while):
+
+.Se usa un bucle while que se ejecuta hasta que uno de los jugadores pierda todos sus barcos.
+.Cada jugador tiene un turno alternado para atacar, en el cual:
+.Introduce coordenadas para disparar.
+.Se actualiza el tablero de ataques y el tablero del oponente.
+.Se verifica si un disparo acertó (if tableroB[...] == 1).
+.Se imprime el estado de los tableros.
 
 ```python
-if orientacion == 1:  # Vertical
-    while fabs(primera_posicion - primera_posicion_siguiente) != 1:
-        primera_posicion_siguiente = int(input("Ingrese el lugar donde pondrá consecutivamente su submarino (en el eje vertical): "))
-    tableroA[primera_posicion_siguiente - 1][segunda_posicion - 1] = 1
-if orientacion == 2:  # Horizontal
-    while abs(segunda_posicion - segunda_posicion_siguiente) != 1:
-        segunda_posicion_siguiente = int(input("Ingrese el lugar donde pondrá consecutivamente su submarino (en el eje horizontal): "))
-    tableroA[primera_posicion - 1][segunda_posicion_siguiente - 1] = 1
+turno = 1  # Empieza el jugador 1
+
+while turno <= 5:  # Simulamos 5 turnos
+    print(f"Turno del jugador {turno % 2 + 1}")
+    
+    # Aquí iría la lógica del juego, como ingresar coordenadas de ataque
+
+    turno += 1  # Cambiar de turno
+
+print("Fin del juego")
 ```
 
 
+## 5. Detección de victoria (Algoritmo de búsqueda en una matriz):
 
-## 5. Limpieza de la consola:
-
-Utilizamos __system("cls")__ para limpiar la pantalla despues de cada turno.
+.Se usa un bucle for que recorre cada fila del tablero verificando si quedan barcos (1 en la matriz).
+.Si ya no quedan barcos (1), el jugador pierde.
+.Se imprime el resultado según la condición (if existencia1 == False o if existencia2 == False).
 
 ```python
-system("cls")
+tablero = [
+    [0, 0, 1, 0],
+    [0, 0, 0, 0],
+    [1, 0, 0, 0],
+    [0, 0, 0, 0]
+]
+
+quedan_barcos = any(1 in fila for fila in tablero)
+
+if quedan_barcos:
+    print("Aún quedan barcos en el tablero.")
+else:
+    print("¡No quedan barcos! Fin del juego.")
 ```
-se repite el mismo procedimiento con el jugador dos, en el tablero __B__
 
 
-## 6. Turnos de ataque:
-se inicia con las matricez __tableroA1__ y __tableroB1__ para registrar los ataques durante la partida.
+## 6. Temporizadores y limpieza de pantalla (Algoritmo de espera y actualización visual):
+
+.sleep(1) se usa para generar pausas entre acciones, simulando un efecto de cuenta regresiva.
+.system("cls") intenta limpiar la pantalla en sistemas Windows (aunque en algunos entornos puede no funcionar correctamente).
 
 ```python
-tableroA1 = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
-tableroB1 = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+import time
+import os
+
+for i in range(5, 0, -1):
+    print(f"{i}...")
+    time.sleep(1)
+    os.system("cls" if os.name == "nt" else "clear")  # Borra la pantalla
+
+print("¡Comienza el juego!")
 ```
 
 
-### Diagramas Respectivos
-
-#### N°1 creación de matrices.
-#### N° 2 Validación de caracteres.
-#### N°3 Posición inicial de los barcos.
-
-https://drive.google.com/drive/folders/1pBN8QKg-8Vz7DXRBARyeN_0zb8beR5JW?usp=sharing
-
-#### N°4 Existencia de barcos
-
-https://drive.google.com/file/d/1YcSZ9uppXao64HunNIpZPWw5Zftk6-qg/view?usp=sharing
+### Diagrama de flujo:
 
 ## Solucion Preliminar
 
