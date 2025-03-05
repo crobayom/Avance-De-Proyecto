@@ -7,6 +7,24 @@
 
 La alternativa que elegimos es de caracter libre y propositiva, mantenemos el orden anterior continuando con juegos; En este caso, el conocido juego de estrategia, nuestra idea es replicarlo (dentro de lo posible) lo mas identico al original, es decir, 4 tableros (2 para las posiciones de los barcos y 2 para los intentos de hundirlos), con la posibilidad de el propio jugador ubicar sus barcos cual si fuera en el juego fisico (en cualquier lugar siempre y cuando este orientado vertical y horizontalmente y este dentro de los limites del tablero) 
 
+### Juego
+
+AStucia Naval
+
+![image](https://github.com/user-attachments/assets/4cf83fd4-be92-4a83-b82e-be448ffbe7a4)
+
+Justicia Naval es un juego de mesa de estrategia y habilidad donde los jugadores asumen el rol de comandantes de barcos de guerra en una serie de batallas en el mar. El objetivo principal es hundir los barcos del oponente utilizando tácticas, conocimiento del terreno y toma de decisiones rápidas.
+
+El juego suele estar basado en una cuadrícula o tablero donde los jugadores colocan sus barcos de manera estratégica, tratando de ocultarlos de su oponente mientras intentan localizar y destruir los barcos enemigos. La mecánica más común involucra lanzar "ataques" en puntos específicos del tablero, con el fin de dar en el blanco de los barcos rivales, lo cual se va indicando con marcas de acierto o fallo.
+
+Elementos necesarios de Justicia Naval:
+
+Tablero dividido en coordenadas, con filas y columnas.
+Barcos de diferentes tamaños (generalmente un destructor, una fragata, un portaaviones, etc.) que deben ser ubicados de forma oculta al contrario.
+Los jugadores turnan para "atacar" en ubicaciones específicas del tablero rival, y si aciertan, el oponente tiene que revelar un impacto en ese punto.
+El juego finaliza cuando uno de los jugadores hunde todos los barcos enemigos.
+Este tipo de juegos pone a prueba la lógica y la capacidad de anticiparse a los movimientos del oponente, ofreciendo tanto estrategia como tensión a medida que los barcos de ambos jugadores se van destruyendo. En muchos casos, el título "Justicia Naval" puede ser una variante o un nombre específico de un juego que sigue estas mismas mecánicas.
+
 ## Algoritmos utilizados
 
 
