@@ -172,8 +172,11 @@ En el archivo adjuntado
 ## Problemas 
 
 [] Entrada de los barcos en las posiciones que el usuario elija
+
 [] Distincion entre jugadores
+
 [] No sobreposicionamiento de barcos (uno sobre otro)
+
 
 ## Conclusion
 
