@@ -143,6 +143,78 @@ print("¡Comienza el juego!")
 
 ### Diagrama de flujo:
 
+```python
+# Astucia Naval - Juego de Batalla Naval
+# Compatible con GitHub
+
+import time
+import random
+
+def crear_tablero():
+    return [[0] * 5 for _ in range(5)]
+
+def mostrar_tablero(tablero):
+    for fila in tablero:
+        print(" ".join(str(celda) for celda in fila))
+    print()
+
+def colocar_barco(tablero, x, y):
+    if 0 <= x < 5 and 0 <= y < 5 and tablero[x][y] == 0:
+        tablero[x][y] = 1
+        return True
+    return False
+
+def ataque(tablero, x, y):
+    if tablero[x][y] == 1:
+        tablero[x][y] = 'X'
+        return "Impacto!"
+    else:
+        tablero[x][y] = 'O'
+        return "Fallo!"
+
+def verificar_victoria(tablero):
+    for fila in tablero:
+        if 1 in fila:
+            return False
+    return True
+
+def juego():
+    print("Bienvenido a Astucia Naval!")
+    tablero_j1 = crear_tablero()
+    tablero_j2 = crear_tablero()
+    
+    for i in range(3):  # Colocar 3 barcos por jugador
+        x, y = random.randint(0, 4), random.randint(0, 4)
+        while not colocar_barco(tablero_j1, x, y):
+            x, y = random.randint(0, 4), random.randint(0, 4)
+        x, y = random.randint(0, 4), random.randint(0, 4)
+        while not colocar_barco(tablero_j2, x, y):
+            x, y = random.randint(0, 4), random.randint(0, 4)
+    
+    turno = 1
+    while True:
+        print(f"Turno del Jugador {turno}")
+        x, y = map(int, input("Ingresa coordenadas (x y): ").split())
+        if turno == 1:
+            resultado = ataque(tablero_j2, x, y)
+        else:
+            resultado = ataque(tablero_j1, x, y)
+        print(resultado)
+        
+        if verificar_victoria(tablero_j1):
+            print("Jugador 2 gana!")
+            break
+        elif verificar_victoria(tablero_j2):
+            print("Jugador 1 gana!")
+            break
+        
+        turno = 2 if turno == 1 else 1
+        time.sleep(2)
+
+if __name__ == "__main__":
+    juego()
+```
+
 ## Solucion Preliminar
 
 En el archivo adjuntado
